@@ -83,11 +83,10 @@ WSGI_APPLICATION = 'football_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'NAME': os.environ['AZURE_POSTGRESQL_NAME'],
+        'USER': os.environ['AZURE_POSTGRESQL_USER'],
+        'PASSWORD': os.environ['AZURE_POSTGRESQL_PASSWORD'],
+        'HOST': os.environ['AZURE_POSTGRESQL_HOST']
     }
 }
 
