@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 style="text-align: center; margin: 10px">Put the team name you want to get the best player against</h1>
+  <div class="container" style="max-width: 300px;">
+    <form method="POST" action="{% url 'player' %}">
+      {% csrf_token %}
+      <input type="text" aria-label="First name" class="form-control" name="team">
+      <div style="text-align: center; margin-top: 10px">
+        <button type="submit" style="text-align: center" class="btn btn-outline-success">Find</button>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

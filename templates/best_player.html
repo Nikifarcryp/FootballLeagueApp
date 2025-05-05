@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if player %}
+    <h1 style="display: flex; justify-content: center; align-items: center; height: 80vh;">The best player against {{ team_name }} is {{ player.player_id__name }} with {{ player.goals_against }}
+        goals!</h1>
+{% else %}
+    <h1 style="display: flex; justify-content: center; align-items: center; height: 80vh;">Sorry, no player found for the team {{ team_name }}.</h1>
+{% endif %}
+
+{% endblock %}
