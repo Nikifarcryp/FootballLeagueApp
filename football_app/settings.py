@@ -31,6 +31,8 @@ DEBUG = bool(os.environ.get("DEBUG", default=0))
 
 ALLOWED_HOSTS = ['*']
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Application definition
 
@@ -42,6 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'league',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://appleague-hcebbjbge6g5fxf5.northeurope-01.azurewebsites.net/',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +93,10 @@ DATABASES = {
          'USER': os.getenv('DATABASE_USERNAME'),
          'PASSWORD': os.getenv('DATABASE_PASSWORD'),
          'HOST': os.getenv('DATABASE_HOST'),
-         'PORT': os.getenv('DATABASE_PORT')
+         'PORT': os.getenv('DATABASE_PORT'),
+         'OPTIONS': {
+            'sslmode': 'require',
+},
      }
  }
 
