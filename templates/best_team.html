@@ -2,6 +2,8 @@
 
 {% block content %}
   <h1 style="display: flex; justify-content: center; align-items: center; height: 80vh;">
-    The best team is {{ best_team.0 }} with
-    {{ best_team.1 }} points!</h1>
+    {% if best_team != None %}
+      The best team is {{ best_team.0 }} with
+      {{ best_team.1 }} points!</h1>
+    {% endif %}
 {% endblock %}

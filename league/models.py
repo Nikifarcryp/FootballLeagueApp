@@ -7,7 +7,9 @@ class Team(models.Model):
     @staticmethod
     def get_the_best_team():
         top_team = Team.objects.select_related('standing').order_by('-standing__points').first()
-        return top_team.name, top_team.standing.points if top_team else None
+        if top_team:
+            return top_team.name, top_team.standing.points if top_team else None
+        return None
 
     def __str__(self):
         return self.name
